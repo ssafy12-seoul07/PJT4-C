@@ -7,13 +7,23 @@ import com.ssafit.comment.model.repository.CommentRepositoryImpl;
 import java.util.ArrayList;
 
 public class CommentServiceImpl implements CommentService {
-    private CommentRepository commentRepository = new CommentRepositoryImpl();
+    
+	private static CommentService commentService = new CommentServiceImpl();
+	
+	private CommentRepository commentRepository = CommentRepositoryImpl.getInstance();
 
+	private CommentServiceImpl() {
+	}
+	
+	public static CommentService getInstance() {
+		return commentService;
+	}
+	
     @Override
     public ArrayList<Comment> getAllComments(String videoId) {
         return commentRepository.findAllByVideoId(videoId);
     }
-
+    
     @Override
     public void addComment(Comment comment) {
         commentRepository.save(comment);
