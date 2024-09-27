@@ -24,17 +24,17 @@
 **Controller Layer**
 
 1. **MainController.java**
-    - **doGet(HttpServletRequest req, HttpServletResponse res)**
+    - **service(HttpServletRequest req, HttpServletResponse res)**
       - 경로에 따라 라우팅 처리:
         - `switch(path)`
-          - `case "board"`:
-            - `doBoard(req, res)` : 게시판 관리로 포워드
-          - **URL**: `/board` → `BoardController`로 매핑
+          - `case "video"`:
+            - `dovideo(req, res)` : 게시판 관리로 포워드
+          - **URL**: `/video` → `videoController`로 매핑
           - `case "comment"`:
             - `doComment(req, res)` : 댓글 관리로 포워드
           - **URL**: `/comment` → `CommentController`로 매핑
 
-2. **BoardController.java** (매핑 경로: `/board`)
+2. **VideoController.java** (매핑 경로: `/video`)
     - **doDetail(HttpServletRequest req, HttpServletResponse res)**: 선택된 영상 게시판의 상세 정보 표시
     - **doSortByViewCnt(HttpServletRequest req, HttpServletResponse res)**: 조회수 기준으로 영상 정렬
     - **doFilter(HttpServletRequest req, HttpServletResponse res)**: 카테고리/운동 부위에 따른 영상 필터링
@@ -49,16 +49,13 @@
 
 **Service Layer**
 
-1. **BoardService.java** (인터페이스)
-    - `List<Board> getAllBoards();`
-    - `Board getBoardById(int id);`
-    - `void addBoard(Board board);`
-    - `void updateBoard(Board board);`
-    - `void deleteBoard(int id);`
-    - `List<Board> getBoardsSortedByViewCount();`
-    - `List<Board> filterBoardsByCategory(String category);`
+1. **videoService.java** (인터페이스)
+    - `List<video> getAllvideos();`
+    - `video getvideoById(int id);`
+    - `List<video> getvideosSortedByViewCount();`
+    - `List<video> filtervideosByCategory(String category);`
 
-2. **BoardServiceImpl.java**: `BoardService`의 메서드를 구현
+2. **videoServiceImpl.java**: `videoService`의 메서드를 구현
 
 3. **CommentService.java** (인터페이스)
     - `List<Comment> getAllComments();`
@@ -73,12 +70,9 @@
 
 **Repository Layer**
 
-1. **BoardRepository.java**
-    - `List<Board> findAll();`
-    - `Board findById(int id);`
-    - `void save(Board board);`
-    - `void update(Board board);`
-    - `void deleteById(int id);`
+1. **videoRepository.java**
+    - `List<video> findAll();`
+    - `video findById(int id);`
 
 2. **CommentRepository.java**
     - `List<Comment> findAll();`
@@ -91,7 +85,7 @@
 
 **Model Layer**
 
-1. **Board.java**
+1. **Video.java**
     - `private int id;`
     - `private String title;`
     - `private String description;`
@@ -100,7 +94,7 @@
 
 2. **Comment.java**
     - `private int id;`
-    - `private int boardId;`
+    - `private int videoId;`
     - `private String content;`
     - `private String author;`
 
@@ -110,11 +104,11 @@
 
 ---
 
-**/board**
+**/video**
 1. **videoDetail.jsp**
     - 선택된 영상의 세부 정보 표시 (영상 제목, 설명, 조회수, 카테고리 등)
     - 댓글 섹션으로 연결하는 앵커 태그 포함
-2. **boardList.jsp**
+2. **videoList.jsp**
     - 모든 영상 목록을 ID 순으로 나열
     - 조회수 순 정렬 버튼 및 카테고리별 필터링 버튼 포함
 
@@ -124,6 +118,8 @@
     - 댓글 추가, 수정, 삭제 기능 포함
 2. **addComment.jsp**
     - 새로운 댓글을 추가하기 위한 폼
+3. **updateComment.jsp**
+    - 기존 댓글을 수정하기 위한 폼
 
 **index.jsp**
 1. 모든 영상 목록을 ID 순으로 정렬하여 표시
