@@ -44,9 +44,6 @@ PJT4-C/
 │   │   │   │   ├── VideoRepository.java
 │   │   │   │   └── CommentRepository.java
 │   │   │   ├── dto/
-│   │   │   │   ├── VideoDTO.java
-│   │   │   │   └── CommentDTO.java
-│   │   │   ├── model/
 │   │   │   │   ├── Video.java
 │   │   │   │   └── Comment.java
 │   │
