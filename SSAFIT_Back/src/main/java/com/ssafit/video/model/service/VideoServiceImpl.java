@@ -6,8 +6,13 @@ import com.ssafit.video.model.dto.Video;
 import com.ssafit.video.model.repository.VideoRepositoryImpl;
 
 public class VideoServiceImpl implements VideoService{
-	VideoRepositoryImpl videoRepo = VideoRepositoryImpl.getInstance();
+	private static VideoService service = new VideoServiceImpl();
+	private VideoRepositoryImpl videoRepo = VideoRepositoryImpl.getInstance();
 
+	public static VideoService getInstance() {
+		return service;
+	}
+	
 	@Override
 	public List<Video> getAllvideos() {
 		// TODO Auto-generated method stub
