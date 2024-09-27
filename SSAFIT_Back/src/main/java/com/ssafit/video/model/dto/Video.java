@@ -1,13 +1,13 @@
 package com.ssafit.video.model.dto;
 
 public class Video {
-	private int id;
+	private String id;
 	private String title;
 	private String description;
 	private int viewCnt;
 	private String category;
 	
-	public Video(int id, String title, String description, int viewCnt, String category) {
+	public Video(String id, String title, String description, int viewCnt, String category) {
 		this.id = id;
 		this.title = title;
 		this.description = description;
@@ -15,11 +15,11 @@ public class Video {
 		this.category = category;
 	}
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
