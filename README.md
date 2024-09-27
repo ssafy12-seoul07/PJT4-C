@@ -1,25 +1,71 @@
-# PJT4-C
-정우 재현 혜민
+### **PJT4-C 프로젝트 명세서**
 
 ---
 
-### **프로젝트 구조 및 구현 사항**
+#### **1. 프로젝트 개요**
+
+**프로젝트명:** SSAFIT_Back
+**참여 인원:** 정우, 재현, 혜민  
+**프로젝트 유형:** Dynamic Web Project  
+**데이터 관리 방식:** 메모리 기반 데이터 관리
+**협업 log**
+
+1. 13:00 - 15:00
+- Back-End 구조 및 작동 원리 복습
+- 명세서 분석을 통해 필요한 Back-End 구조를 결정 
+- ChatGPT를 통해 구조 내 필요한 인터페이스, 변수명, 메소드명 통일 및 UML Diagram 제작 
+- 공통 작업 부분과 분업 가능 부분을 파악
+
+2. 15:00 - 18:00
+- 정우: Controller 및 헬퍼
+- 혜민: Video 담당
+- 재현: Comment 담당
 
 ---
 
-#### 1. **프로젝트 구조**
-- **Dynamic Web Project**로 설정
-- **메모리 기반 데이터 관리** (이전 자바 관통과 동일한 방식)
+#### **2. 디렉토리 구조 및 UML Diagram**
+
+```
+PJT4-C/
+│
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   ├── controller/
+│   │   │   │   ├── MainController.java
+│   │   │   │   ├── VideoController.java
+│   │   │   │   └── CommentController.java
+│   │   │   ├── service/
+│   │   │   │   ├── VideoService.java
+│   │   │   │   ├── VideoServiceImpl.java
+│   │   │   │   ├── CommentService.java
+│   │   │   │   └── CommentServiceImpl.java
+│   │   │   ├── repository/
+│   │   │   │   ├── VideoRepository.java
+│   │   │   │   └── CommentRepository.java
+│   │   │   ├── dto/
+│   │   │   │   ├── Video.java
+│   │   │   │   └── Comment.java
+│   │
+│   └── webapp/
+│       ├── video/
+│       │   ├── videoDetail.jsp
+│       │   └── videoList.jsp
+│       ├── comment/
+│       │   ├── commentList.jsp
+│       │   ├── addComment.jsp
+│       │   └── updateComment.jsp
+│       └── index.jsp
+```
+![UML Diagram](https://github.com/user-attachments/assets/8e4d83db-7f00-4c49-bd24-6dcd48a43664)
 
 ---
 
-#### 2. **디렉토리 구조 및 각 파일별 메서드 구현 사항**
+#### **3. 주요 기능 구현 사항**
 
 ---
 
-##### 2.1. **src/main/java**
-
----
+##### **src/main/java**
 
 **Controller Layer**
 
@@ -35,15 +81,15 @@
           - **URL**: `/comment` → `CommentController`로 매핑
 
 2. **VideoController.java** (매핑 경로: `/video`)
-    - **doDetail(HttpServletRequest req, HttpServletResponse res)**: 선택된 영상 게시판의 상세 정보 표시
-    - **doSortByViewCnt(HttpServletRequest req, HttpServletResponse res)**: 조회수 기준으로 영상 정렬
-    - **doFilter(HttpServletRequest req, HttpServletResponse res)**: 카테고리/운동 부위에 따른 영상 필터링
+    - **`doDetail(HttpServletRequest req, HttpServletResponse res)`**: 선택된 영상 게시판의 상세 정보 표시
+    - **`doSortByViewCnt(HttpServletRequest req, HttpServletResponse res)`**: 조회수 기준으로 영상 정렬
+    - **`doFilter(HttpServletRequest req, HttpServletResponse res)`**: 카테고리/운동 부위에 따른 영상 필터링
 
 3. **CommentController.java** (매핑 경로: `/comment`)
-    - **doList(HttpServletRequest req, HttpServletResponse res)**: 해당 영상의 모든 댓글 목록 표시
-    - **doAdd(HttpServletRequest req, HttpServletResponse res)**: 새로운 댓글 추가
-    - **doUpdate(HttpServletRequest req, HttpServletResponse res)**: 기존 댓글 수정
-    - **doDelete(HttpServletRequest req, HttpServletResponse res)**: 댓글 삭제
+    - **`doList(HttpServletRequest req, HttpServletResponse res)`**: 해당 영상의 모든 댓글 목록 표시
+    - **`doAdd(HttpServletRequest req, HttpServletResponse res)`**: 새로운 댓글 추가
+    - **`doUpdate(HttpServletRequest req, HttpServletResponse res)`**: 기존 댓글 수정
+    - **`doDelete(HttpServletRequest req, HttpServletResponse res)`**: 댓글 삭제
 
 ---
 
@@ -100,7 +146,7 @@
 
 ---
 
-##### 2.2. **src/main/webapp**
+##### **src/main/webapp**
 
 ---
 
