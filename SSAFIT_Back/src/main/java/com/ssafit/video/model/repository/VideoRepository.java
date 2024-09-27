@@ -15,4 +15,6 @@ public interface VideoRepository {
 	public List<Video> getVideosSortedByViewCount();
 	
 	public List<Video> filterVideosByCategory(String Category);
+	
+	public void initailizeVideos();
 }
