@@ -71,15 +71,15 @@ PJT4-C/
           - **URL**: `/comment` → `CommentController`로 매핑
 
 2. **VideoController.java** (매핑 경로: `/video`)
-    - **doDetail(HttpServletRequest req, HttpServletResponse res)**: 선택된 영상 게시판의 상세 정보 표시
-    - **doSortByViewCnt(HttpServletRequest req, HttpServletResponse res)**: 조회수 기준으로 영상 정렬
-    - **doFilter(HttpServletRequest req, HttpServletResponse res)**: 카테고리/운동 부위에 따른 영상 필터링
+    - **`doDetail(HttpServletRequest req, HttpServletResponse res)`**: 선택된 영상 게시판의 상세 정보 표시
+    - **`doSortByViewCnt(HttpServletRequest req, HttpServletResponse res)`**: 조회수 기준으로 영상 정렬
+    - **`doFilter(HttpServletRequest req, HttpServletResponse res)`**: 카테고리/운동 부위에 따른 영상 필터링
 
 3. **CommentController.java** (매핑 경로: `/comment`)
-    - **doList(HttpServletRequest req, HttpServletResponse res)**: 해당 영상의 모든 댓글 목록 표시
-    - **doAdd(HttpServletRequest req, HttpServletResponse res)**: 새로운 댓글 추가
-    - **doUpdate(HttpServletRequest req, HttpServletResponse res)**: 기존 댓글 수정
-    - **doDelete(HttpServletRequest req, HttpServletResponse res)**: 댓글 삭제
+    - **`doList(HttpServletRequest req, HttpServletResponse res)`**: 해당 영상의 모든 댓글 목록 표시
+    - **`doAdd(HttpServletRequest req, HttpServletResponse res)`**: 새로운 댓글 추가
+    - **`doUpdate(HttpServletRequest req, HttpServletResponse res)`**: 기존 댓글 수정
+    - **`doDelete(HttpServletRequest req, HttpServletResponse res)`**: 댓글 삭제
 
 ---
 
