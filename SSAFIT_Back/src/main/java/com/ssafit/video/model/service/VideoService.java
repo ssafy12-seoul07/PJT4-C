@@ -3,7 +3,7 @@ package com.ssafit.video.model.service;
 import java.util.List;
 import com.ssafit.video.model.dto.Video;
 
-public interface videoService {
+public interface VideoService {
 	// 모든 비디오 List를 반환
 	public abstract List<Video> getAllvideos();
 	
