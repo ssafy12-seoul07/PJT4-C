@@ -15,6 +15,4 @@ public interface videoService {
 	
 	// 부위별 운동 필터링
 	public abstract List<Video> filterVideoBuCategory(String category);
-	
-	
 }
