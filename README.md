@@ -1,25 +1,61 @@
-# PJT4-C
-정우 재현 혜민
+### **PJT4-C 프로젝트 명세서**
 
 ---
 
-### **프로젝트 구조 및 구현 사항**
+#### **1. 프로젝트 개요**
+
+**프로젝트명:** PJT4-C  
+**참여 인원:** 정우, 재현, 혜민  
+**프로젝트 유형:** Dynamic Web Project  
+**데이터 관리 방식:** 메모리 기반 데이터 관리
 
 ---
 
-#### 1. **프로젝트 구조**
-- **Dynamic Web Project**로 설정
-- **메모리 기반 데이터 관리** (이전 자바 관통과 동일한 방식)
+#### **2. 디렉토리 구조**
+
+```
+PJT4-C/
+│
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   ├── controller/
+│   │   │   │   ├── MainController.java
+│   │   │   │   ├── VideoController.java
+│   │   │   │   └── CommentController.java
+│   │   │   ├── service/
+│   │   │   │   ├── VideoService.java
+│   │   │   │   ├── VideoServiceImpl.java
+│   │   │   │   ├── CommentService.java
+│   │   │   │   └── CommentServiceImpl.java
+│   │   │   ├── repository/
+│   │   │   │   ├── VideoRepository.java
+│   │   │   │   └── CommentRepository.java
+│   │   │   ├── dto/
+│   │   │   │   ├── VideoDTO.java
+│   │   │   │   └── CommentDTO.java
+│   │   │   ├── model/
+│   │   │   │   ├── Video.java
+│   │   │   │   └── Comment.java
+│   │
+│   └── webapp/
+│       ├── video/
+│       │   ├── videoDetail.jsp
+│       │   └── videoList.jsp
+│       ├── comment/
+│       │   ├── commentList.jsp
+│       │   ├── addComment.jsp
+│       │   └── updateComment.jsp
+│       └── index.jsp
+```
 
 ---
 
-#### 2. **디렉토리 구조 및 각 파일별 메서드 구현 사항**
+#### **3. 주요 기능 구현 사항**
 
 ---
 
-##### 2.1. **src/main/java**
-
----
+##### **src/main/java**
 
 **Controller Layer**
 
@@ -100,7 +136,7 @@
 
 ---
 
-##### 2.2. **src/main/webapp**
+##### **src/main/webapp**
 
 ---
 
