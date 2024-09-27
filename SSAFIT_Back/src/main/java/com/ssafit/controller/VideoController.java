@@ -15,21 +15,23 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet("/video")
 class VideoController extends HttpServlet{
 	private static final long serialVersionUID = 1L;
-	private VideoService service = VideoServiceImpl.getInstance();
+	private static VideoService service = VideoServiceImpl.getInstance();
 	
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String action = request.getParameter("action");
+		System.out.println("난 비디오 컨트롤러야");
+		String action = (String) request.getAttribute("action");
 		switch(action) {
-		case "doDetail":
+		case "detail":
 			doDetail(request, response);
+			break;
 		}
 	}
 	
 	// 선택한 영상의 정보 표시
 	private void doDetail(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int id = Integer.parseInt(request.getParameter("id"));
+		String id = (String)request.getAttribute("id");
 		
 		request.setAttribute("video", service.getVideoById(id));
 		

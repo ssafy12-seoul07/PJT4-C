@@ -9,18 +9,27 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("")
+@WebServlet("/main")
 public class MainController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String path = request.getParameter("path");
+		String action = request.getParameter("action");
+		String id = request.getParameter("id");
+		
+		request.setAttribute("path", path);
+		request.setAttribute("action", action);
+		request.setAttribute("id", id);
+		
 		switch(path) {
 		case "video":
 			doVideo(request, response); // 게시판 관리로 포워딩
+			break;
 		case "comment":
 			doComment(request, response); // 댓글 관리로 포워딩
+			break;
 		}
 	}
 
@@ -33,8 +42,8 @@ public class MainController extends HttpServlet {
 
 	private void doVideo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 이건 길이야! 길을 지정
-		RequestDispatcher rdp = request.getRequestDispatcher("/VideoController.java");
-		
+		RequestDispatcher rdp = request.getRequestDispatcher("/video");
+		System.out.println(request.getAttribute("path"));
 		// forwarding
 		rdp.forward(request, response);
 	}

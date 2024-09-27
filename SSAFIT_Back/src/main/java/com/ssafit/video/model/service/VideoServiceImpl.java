@@ -20,9 +20,9 @@ public class VideoServiceImpl implements VideoService{
 	}
 
 	@Override
-	public Video getVideoById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Video getVideoById(String id) {
+		int index = videoRepo.getVideoMap().get(id);
+		return videoRepo.getAllVideos().get(index);
 	}
 
 	@Override

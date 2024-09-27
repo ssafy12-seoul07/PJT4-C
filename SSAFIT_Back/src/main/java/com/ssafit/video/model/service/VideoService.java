@@ -8,7 +8,7 @@ public interface VideoService {
 	public abstract List<Video> getAllvideos();
 	
 	// id가 일치하는 비디오 반환
-	public abstract Video getVideoById(int id);
+	public abstract Video getVideoById(String id);
 	
 	// 조회수 기준 정렬
 	public abstract List<Video> getVideosSortByViewCount();

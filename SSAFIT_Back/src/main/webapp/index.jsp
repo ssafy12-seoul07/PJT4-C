@@ -1,21 +1,27 @@
+<%@page import="java.util.List"%>
 <%@page import="com.ssafit.video.model.service.VideoServiceImpl"%>
 <%@page import="com.ssafit.comment.model.service.CommentServiceImpl"%>
 <%@page import="com.ssafit.video.model.repository.VideoRepositoryImpl"%>
 <%@page import="com.ssafit.video.model.repository.VideoRepository"%>
 <%@page import="com.ssafit.comment.model.repository.CommentRepository"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+	pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <%!
 	//CommentRepositoryImpl commentRepo = CommentRepository.getInstance();
 	VideoRepositoryImpl videoRepo = VideoRepositoryImpl.getInstance();
+
 %>
 <%
 	if(videoRepo.getAllVideos().size()==0){
 		//commentRepo.initializeComments();
 		videoRepo.initailizeVideos();		
 	}
+	List<String> partsList = videoRepo.getPartsList();
+	request.setAttribute("partsList", partsList);
+	request.setAttribute("videoList", videoRepo.getAllVideos());
 %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,12 +37,14 @@
 			<option value="viewCnt">조회수 기준</option>
 			<option value="id">작성일 기준</option>
 		</select>
-		<c:forEach items="${videoRepo.partsList}" var="part">
+		<c:forEach items="${partsList}" var="part">
 			<input type="checkbox" name="filter" value="${part}" id="${part}">
 			<label for="${part}">${part}</label>
 		</c:forEach>
 	</form>
 	<h2>전체 영상</h2>
-	
+	<c:forEach items="${videoList}" var="video">
+		<a href="main?path=video&action=detail&id=${video.id}">${video.title}</a>
+	</c:forEach>
 </body>
 </html>
