@@ -34,6 +34,8 @@ public class MainController extends HttpServlet {
 	private void doVideo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 이건 길이야! 길을 지정
 		RequestDispatcher rdp = request.getRequestDispatcher("/VideoController.java");
+		
+		// forwarding
 		rdp.forward(request, response);
 	}
 }
