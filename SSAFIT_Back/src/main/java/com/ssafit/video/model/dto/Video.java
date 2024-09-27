@@ -60,7 +60,5 @@ public class Video {
 		return "Video [id=" + id + ", title=" + title + ", description=" + description + ", viewCnt=" + viewCnt
 				+ ", category=" + category + "]";
 	}
-	
-	
-	
 }
+	

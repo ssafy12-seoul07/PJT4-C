@@ -2,6 +2,7 @@ package com.ssafit.controller;
 
 import java.io.IOException;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -25,13 +26,16 @@ public class MainController extends HttpServlet {
 
 	private void doComment(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// CommentController.java로 forwarding
-		request.getRequestDispatcher("/CommentController.java").forward(request, response);
+		RequestDispatcher rdp= request.getRequestDispatcher("/CommentController.java");
+		rdp.forward(request, response);
 
 	}
 
 	private void doVideo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// VideoController.java로 forwarding
-		request.getRequestDispatcher("/VideoController.java").forward(request, response);
-
+		// 이건 길이야! 길을 지정
+		RequestDispatcher rdp = request.getRequestDispatcher("/VideoController.java");
+		
+		// forwarding
+		rdp.forward(request, response);
 	}
 }
