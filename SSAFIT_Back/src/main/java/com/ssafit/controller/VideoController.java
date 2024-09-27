@@ -2,6 +2,9 @@ package com.ssafit.controller;
 
 import java.io.IOException;
 
+import com.ssafit.video.model.service.VideoService;
+import com.ssafit.video.model.service.VideoServiceImpl;
+
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -28,7 +31,7 @@ class VideoController extends HttpServlet{
 	private void doDetail(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int id = Integer.parseInt(request.getParameter("id"));
 		
-		request.setAttribute(, service);
+		request.setAttribute("video", service.getVideoById(id));
 		
 		// 길 지정
 		RequestDispatcher rdp = request.getRequestDispatcher("/WEB-INF/video/videoDetail.jsp");
