@@ -23,7 +23,7 @@
 
 ---
 
-#### **2. 디렉토리 구조**
+#### **2. 디렉토리 구조 및 UML Diagram**
 
 ```
 PJT4-C/
@@ -60,6 +60,7 @@ PJT4-C/
 │       │   └── updateComment.jsp
 │       └── index.jsp
 ```
+![UML Diagram](https://github.com/user-attachments/assets/8e4d83db-7f00-4c49-bd24-6dcd48a43664)
 
 ---
 
